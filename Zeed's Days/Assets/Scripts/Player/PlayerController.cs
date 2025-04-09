@@ -169,7 +169,7 @@ public class PlayerController : MonoBehaviour
             float targetSpeed = input.isSprint ? _sprintSpeed : _walkSpeed;
 
             if (input.MoveDirection == Vector2.zero) targetSpeed = 0f;
-            float currentHorizontalSpeed = new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude;
+            float currentHorizontalSpeed = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z).magnitude;
 
             if (currentHorizontalSpeed < targetSpeed - speedOffset || currentHorizontalSpeed > targetSpeed + speedOffset)
             {
@@ -190,7 +190,7 @@ public class PlayerController : MonoBehaviour
                 if (RotateOnMove) transform.rotation = Quaternion.Euler(0, rotation, 0);
             }
             Vector3 targetDirection = Quaternion.Euler(0, targetRotation, 0) * Vector3.forward;
-            rb.velocity = targetDirection * speed;
+            rb.linearVelocity = targetDirection * speed;
             animator.SetFloat(_animIDSpeed, animationBlend);
         }
 

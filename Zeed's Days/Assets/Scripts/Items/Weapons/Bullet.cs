@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        rb.velocity = transform.forward * speed;
+        rb.linearVelocity = transform.forward * speed;
         StartCoroutine(Destroy());
     }
     IEnumerator Destroy()

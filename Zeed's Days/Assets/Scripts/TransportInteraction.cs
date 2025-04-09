@@ -31,7 +31,7 @@ public class TransportInteraction : MonoBehaviour, IInteractable
     {
         while (rb != null && canMove)
         {
-            rb.velocity = new Vector3(0,0,controller.MoveDirection.y);
+            rb.linearVelocity = new Vector3(0,0,controller.MoveDirection.y);
             yield return new WaitForSeconds(0.01f);
         }
     }
